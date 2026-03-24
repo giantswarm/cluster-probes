@@ -1,19 +1,20 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@6.10.0
+  architect: giantswarm/architect@6.15.0
 
 workflows:
-  package-and-push-chart-on-tag:
+  version: 2
+  build:
     jobs:
     - architect/push-to-app-catalog:
         context: architect
         executor: app-build-suite
-        name: package-and-push-chart
-        app_catalog: giantswarm-catalog
-        app_catalog_test: giantswarm-test-catalog
-        chart: 'cluster-probes'
-          # Trigger job on git tag.
+        name: push-to-default-app-catalog
+        app_catalog: default-catalog
+        app_catalog_test: default-test-catalog
+        chart: cluster-probes
         filters:
+            # Trigger the job also on git tag.
           tags:
             only: /^v.*/
           branches:
