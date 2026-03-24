@@ -2,25 +2,18 @@
 # for details and background.
 
 apiVersion: v2
-
 # Version of the packaged app
 appVersion: "0.1.0"
-
 # Name of the application
 name: cluster-probes
-
 # Description of what the chart provides
 description: "Helm chart for monitoring workload cluster API server availability from the management cluster using Prometheus blackbox exporter"
-
 # URL of the GitHub repository that is the source of this Chart
 home: https://github.com/giantswarm/cluster-probes
-
 # Icon for the application
 icon: https://s.giantswarm.io/app-icons/giantswarm/1/light.svg
-
 # Chart version for the Helm package
-version: "0.1.0"
-
+version: "0.0.1"
 # Keywords for searching and categorizing the chart
 keywords:
   - monitoring
@@ -28,12 +21,10 @@ keywords:
   - servicemonitor
   - blackbox-exporter
   - cluster-probes
-
 # Source repositories for this chart
 sources:
   - https://github.com/giantswarm/cluster-probes
   - https://github.com/giantswarm/cluster
-
 annotations:
   io.giantswarm.application.audience: internal
   io.giantswarm.application.managed: "true"
