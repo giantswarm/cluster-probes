@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix service monitor `namespaceSelector` to target the blackbox exporter in the kube-system namespace.
+
 ## [0.0.1] - 2026-03-24
 
 ### Added
