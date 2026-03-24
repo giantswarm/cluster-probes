@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.1] - 2026-03-24
+
 ### Added
 
 - Initial release of cluster-probes Helm chart
@@ -14,5 +16,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for dynamic cluster and domain configuration
 - Integration with prometheus-blackbox-exporter on management cluster
 
-[Unreleased]: https://github.com/giantswarm/cluster-probes/tree/main
-
+[Unreleased]: https://github.com/giantswarm/cluster-probes/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/giantswarm/cluster-probes/releases/tag/v0.0.1
