@@ -1,0 +1,38 @@
+# Probe configuration defaults (passed from cluster chart)
+# Default interval for ServiceMonitor probes
+interval: 60s
+
+# Blackbox exporter module to use for probing
+# http_2xx_insecure: HTTP check that accepts any 2xx status (insecure SSL)
+module: http_2xx_insecure
+
+# Timeout for individual probe requests
+scrapeTimeout: 10s
+
+# ServiceMonitor configuration
+serviceMonitor:
+  # Enable/disable ServiceMonitor resource creation
+  enabled: true
+  
+  # Additional labels for the ServiceMonitor resource
+  # These are merged with standard app.kubernetes.io labels
+  labels:
+    observability.giantswarm.io/tenant: giantswarm
+
+# Cluster-specific values (will be populated by cluster chart at runtime)
+# These values determine the API server endpoint being probed
+clusterName: ""  # {{ .Values.global.metadata.name }}
+baseDomain: ""   # {{ .Values.global.connectivity.baseDomain }}
+apiServerPort: 443  # {{ .Values.global.controlPlane.apiServerPort }}
+
+# Blackbox exporter selector configuration
+# Used to discover and target the blackbox exporter on the management cluster
+blackboxExporter:
+  # Namespace where prometheus-blackbox-exporter is deployed
+  namespace: kube-system
+  
+  # Label selectors to identify the blackbox exporter service
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: prometheus-blackbox-exporter
+      app.kubernetes.io/instance: prometheus-blackbox-exporter

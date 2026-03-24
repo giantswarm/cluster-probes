@@ -1,0 +1,50 @@
+{{- if .Values.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "cluster-probes.fullname" . }}-apiserver-probe
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "cluster-probes.labels" . | nindent 4 }}
+    {{- with .Values.serviceMonitor.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  # ServiceMonitor endpoints configuration
+  endpoints:
+  - interval: {{ .Values.interval }}
+    metricRelabelings:
+    # Relabel cluster_id to use the cluster name
+    - action: replace
+      sourceLabels: [instance]
+      targetLabel: cluster_id
+      replacement: "{{ .Values.clusterName }}"
+    # Relabel target to use a human-readable name
+    - action: replace
+      sourceLabels: [target]
+      targetLabel: target
+      replacement: "{{ .Values.clusterName }}-apiserver"
+    # Blackbox exporter module configuration
+    params:
+      # Module: http_2xx_insecure accepts any 2xx HTTP response without strict SSL validation
+      module: ["{{ .Values.module }}"]
+      # Target: API server endpoint being probed
+      target: ["https://api.{{ .Values.clusterName }}.{{ .Values.baseDomain }}:{{ .Values.apiServerPort }}/readyz"]
+    path: /probe
+    port: http
+    scheme: http
+    scrapeTimeout: {{ .Values.scrapeTimeout }}
+
+  # Job label used by Prometheus for scraping
+  jobLabel: prometheus-blackbox-exporter
+
+  # Namespace selector: ServiceMonitor must be in a monitored namespace
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+
+  # Selector to identify the prometheus-blackbox-exporter service
+  selector:
+    matchLabels:
+      {{- toYaml .Values.blackboxExporter.selector.matchLabels | nindent 6 }}
+{{- end }}

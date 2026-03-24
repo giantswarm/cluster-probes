@@ -1,0 +1,29 @@
+# Patterns to ignore when building packages.
+# This supports shell glob patterns, relative paths (relative to the chart root),
+# and negated patterns (prefixed with '!') to un-ignore a file.
+
+# Common VCS dirs
+.git/
+.gitignore
+.gitattributes
+.hg/
+.hgignore
+.svn/
+
+# Common backup files
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Linting and testing files
+.helmignore
+.pre-commit-hooks.yaml
+.pre-commit-config.yaml
+
+# Chart documentation
+README.md
+
+# Build artifacts
+/build/
