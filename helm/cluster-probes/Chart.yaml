@@ -13,7 +13,7 @@ home: https://github.com/giantswarm/cluster-probes
 # Icon for the application
 icon: https://s.giantswarm.io/app-icons/giantswarm/1/light.svg
 # Chart version for the Helm package
-version: "0.0.1"
+version: "0.0.2"
 # Keywords for searching and categorizing the chart
 keywords:
   - monitoring

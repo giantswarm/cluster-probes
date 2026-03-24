@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2] - 2026-03-24
+
+### Fixed
+
+- Fix service monitor `namespaceSelector` to target the blackbox exporter in the kube-system namespace.
+
 ## [0.0.1] - 2026-03-24
 
 ### Added
@@ -16,5 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for dynamic cluster and domain configuration
 - Integration with prometheus-blackbox-exporter on management cluster
 
-[Unreleased]: https://github.com/giantswarm/cluster-probes/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/giantswarm/cluster-probes/compare/v0.0.2...HEAD
+[0.0.2]: https://github.com/giantswarm/cluster-probes/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/giantswarm/cluster-probes/releases/tag/v0.0.1

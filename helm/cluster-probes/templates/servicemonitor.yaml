@@ -41,7 +41,7 @@ spec:
   # Namespace selector: ServiceMonitor must be in a monitored namespace
   namespaceSelector:
     matchNames:
-    - {{ .Release.Namespace }}
+    - {{ .Values.blackboxExporter.namespace }}
 
   # Selector to identify the prometheus-blackbox-exporter service
   selector:
