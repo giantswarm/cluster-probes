@@ -42,7 +42,7 @@ This app is typically installed automatically when deploying a workload cluster 
 
 ### Manual Installation
 
-For detailed installation instructions and configuration options, see [helm/cluster-probes/README.md](helm/cluster-probes/README.md).
+For all configuration options, see [helm/cluster-probes/values.yaml](helm/cluster-probes/values.yaml) and its schema [helm/cluster-probes/values.schema.json](helm/cluster-probes/values.schema.json).
 
 ```bash
 # Install from OCI registry
@@ -62,7 +62,7 @@ Key configuration options:
 - **interval**: Probe interval (default: 60s)
 - **module**: Blackbox module to use (default: http_2xx_insecure)
 
-See [helm/cluster-probes/README.md](helm/cluster-probes/README.md) for comprehensive configuration guide.
+See [helm/cluster-probes/values.yaml](helm/cluster-probes/values.yaml) for all configuration options and their defaults.
 
 ## Integration
 
@@ -83,7 +83,6 @@ cluster-probes/
 │           ├── _helpers.tpl
 │           └── servicemonitor.yaml
 ├── CHANGELOG.md            # Version history
-├── CODE_OF_CONDUCT.md      # Community guidelines
 ├── CODEOWNERS              # Team ownership
 ├── LICENSE                 # Apache 2.0 license
 └── README.md               # This file
@@ -133,7 +132,7 @@ Current version: `0.1.0`
 
 ## Contributing
 
-We welcome contributions! Please see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for our community standards and guidelines for contributing.
+We welcome contributions! Please open an issue or a pull request in this repository.
 
 ## Support
 
